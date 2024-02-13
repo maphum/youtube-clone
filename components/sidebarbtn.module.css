@@ -1,0 +1,50 @@
+.svgIcon,
+.trending {
+  position: relative;
+  flex-shrink: 0;
+}
+.svgIcon {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.trending {
+  width: 54.7px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  height: 16px;
+}
+.ytFormattedString {
+  width: 132px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.tpYtPaperItem,
+.ytdGuideEntryRenderer {
+  width: 204px;
+  display: flex;
+  align-items: center;
+}
+.tpYtPaperItem {
+  height: 40px;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xs);
+  box-sizing: border-box;
+  gap: var(--gap-5xl);
+}
+.ytdGuideEntryRenderer {
+  border-radius: var(--br-3xs);
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-100);
+  font-family: var(--font-roboto);
+}

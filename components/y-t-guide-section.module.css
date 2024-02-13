@@ -1,0 +1,36 @@
+.divitems,
+.explore {
+  position: absolute;
+  display: flex;
+}
+.explore {
+  width: 22.08%;
+  top: 19px;
+  left: 10%;
+  line-height: 22px;
+  align-items: center;
+  height: 19px;
+}
+.divitems {
+  width: 90%;
+  top: 44px;
+  right: 5%;
+  left: 5%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-xs) 0 0;
+  box-sizing: border-box;
+  font-size: var(--font-size-sm);
+}
+.ytdGuideSectionRenderer {
+  width: 240px;
+  position: relative;
+  border-top: 1px solid var(--color-gray-300);
+  box-sizing: border-box;
+  height: 457px;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-gray-100);
+  font-family: var(--font-roboto);
+}
