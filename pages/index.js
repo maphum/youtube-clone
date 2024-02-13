@@ -1,8 +1,13 @@
-import { useCallback } from "react";
+"use client"
+
+import { useCallback, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import YTSearchBar from "../components/y-t-search-bar";
 import YTGuideSection from "../components/y-t-guide-section";
+import { formatDistance } from 'date-fns'
 import styles from "./index.module.css";
+
+const api_key = process.env.REACT_APP_API_KEY
 
 const Homepage = () => {
   const router = useRouter();
@@ -15,17 +20,50 @@ const Homepage = () => {
     router.push("/video-page");
   }, [router]);
 
-  const onYtdCardContainer1Click = useCallback(() => {
-    router.push("/video-page");
-  }, [router]);
+  const [videos, setVideos] = useState([])
+  useEffect(() => {
+    async function fetchVideos() {
 
-  const onYtdCardContainer2Click = useCallback(() => {
-    router.push("/video-page");
-  }, [router]);
+      let Recommended = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&chart=mostPopular&maxResults=12&regionCode=IN&key=${"AIzaSyAajxxoLEMtwC2P3_b-Xm94GlP0HMgGMoI"}`).then(res => res.json());
 
-  const onYtdCardContainer3Click = useCallback(() => {
-    router.push("/video-page");
-  }, [router]);
+
+      const getlogo = async (channel_id) => {
+        var URL = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channel_id}&key=${"AIzaSyAajxxoLEMtwC2P3_b-Xm94GlP0HMgGMoI"}`;
+        const res = await fetch(URL, {
+          method: "GET", //Method of https request
+          headers: {},
+        });
+        const logodata = await res.json();
+        let logo = logodata.items[0].snippet.thumbnails.default.url;
+        console.log(logo)
+        return logo;
+      };
+      let v = Recommended?.items;
+      v = v.map(async item => {
+        item.logo = await getlogo(item.snippet.channelId)
+        return item
+      })
+
+      let finalList = await Promise.all(v).then((res) => {
+        console.log(res)
+        return res
+      })
+
+      setVideos(chunkArrayInGroups(finalList, 4))
+    }
+
+    fetchVideos();
+
+  }, [])
+
+  
+  function chunkArrayInGroups(arr, size) {
+    var myArray = [];
+    for (var i = 0; i < arr.length; i += size) {
+      myArray.push(arr.slice(i, i + size));
+    }
+    return myArray;
+  }
 
   return (
     <div className={styles.homepage}>
@@ -175,7 +213,43 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className={styles.divcontents}>
+          {videos?.length > 0 ? videos.map(groupVideos => {
+                            return <div className={styles.divcontents}>
+                              {groupVideos.map(video => <div className={styles.ytdCard} onClick={() => onYtdCardContainerClick(video)}>
+                <img
+                  className={styles.ytdThumbnailIcon}
+                  alt=""
+                  src={video.snippet.thumbnails.high.url || "/ytdthumbnail@2x.png"}
+                />
+                <div className={styles.ytdDescription}>
+                  <img
+                    className={styles.zMnvfkkjr08efltsqqm53qn7x3gyIcon}
+                    alt=""
+                    src={video.logo || "/8zmnvfkkjr08efltsqqm5-3qn7x3gy0ffr0dy6mqscdddxj1zfwnumsa4i8gwtvpdqkwbds68ckc0x00ffffffnorj@2x.png"}
+                  />
+                  <div className={styles.divmeta}>
+                    <div className={styles.coolestNewGadgets}>
+                      {video.snippet.title}
+                    </div>
+                    <div className={styles.divmetadata}>
+                      <div className={styles.techow}>{video.snippet.channelTitle}</div>
+                      <div className={styles.divmetadataLine}>
+                        <div className={styles.techow}>
+                          {video.statistics.viewCount > 1000 ? `${Math.ceil(video.statistics.viewCount / 1000000)}M` : video.statistics.viewCount} views
+                        </div>
+                        <div className={styles.techow}>
+                          • {formatDistance(new Date(video.snippet.publishedAt), new Date(), { addSuffix: true })}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              )}
+              </div>
+            }) : <div>Loading</div>
+            }
+          {/* <div className={styles.divcontents}>
             <div className={styles.ytdCard} onClick={onYtdCardContainerClick}>
               <img
                 className={styles.ytdThumbnailIcon}
@@ -280,7 +354,7 @@ const Homepage = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
