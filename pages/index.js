@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useRouter } from "next/router";
 import YTSearchBar from "../components/y-t-search-bar";
-import YTGuideSection from "../components/y-t-guide-section";
+import Divsections from "../components/divsections";
 import styles from "./index.module.css";
 
 const Homepage = () => {
@@ -41,137 +41,72 @@ const Homepage = () => {
         svg3="/svg3.svg"
       />
       <div className={styles.ytdBody}>
-        <div className={styles.divsections}>
-          <div className={styles.divitems}>
-            <button className={styles.ytdGuideEntryRenderer}>
-              <div className={styles.tpYtPaperItem}>
-                <img className={styles.svgIcon} alt="" src="/svg4.svg" />
-                <div className={styles.ytFormattedString}>
-                  <div className={styles.home}>Home</div>
-                </div>
-              </div>
-            </button>
-            <div className={styles.ytdGuideEntryRenderer1}>
-              <div className={styles.tpYtPaperItem}>
-                <img className={styles.svgIcon} alt="" src="/svg5.svg" />
-                <div className={styles.ytFormattedString}>
-                  <div className={styles.shorts}>Shorts</div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.ytdGuideEntryRenderer1}>
-              <div className={styles.tpYtPaperItem}>
-                <img className={styles.svgIcon} alt="" src="/svg6.svg" />
-                <div className={styles.ytFormattedString}>
-                  <div className={styles.subscriptions}>Subscriptions</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.divitems1}>
-            <div className={styles.ytdGuideEntryRenderer1}>
-              <div className={styles.tpYtPaperItem}>
-                <img className={styles.svgIcon} alt="" src="/svg7.svg" />
-                <div className={styles.ytFormattedString}>
-                  <div className={styles.library}>Library</div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.ytdGuideEntryRenderer1}>
-              <div className={styles.tpYtPaperItem}>
-                <img className={styles.svgIcon} alt="" src="/svg8.svg" />
-                <div className={styles.ytFormattedString}>
-                  <div className={styles.history}>History</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.ytdGuideSigninPromoRendere}>
-            <div className={styles.signInTo}>
-              Sign in to like videos, comment, and subscribe.
-            </div>
-            <div className={styles.a}>
-              <img className={styles.svgIcon} alt="" src="/svg3.svg" />
-              <div className={styles.div}>
-                <div className={styles.signIn}>Sign in</div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.ytdGuideEntryRenderer5}>
-            <div className={styles.tpYtPaperItem}>
-              <img className={styles.svgIcon} alt="" src="/svg9.svg" />
-              <div className={styles.ytFormattedString}>
-                <div className={styles.browseChannels}>Browse channels</div>
-              </div>
-            </div>
-          </div>
-          <YTGuideSection />
-        </div>
+        <Divsections />
         <div className={styles.ytdRichGridRenderer}>
           <div className={styles.ironSelector}>
             <div className={styles.ytChipCloudChipRenderer}>
-              <div className={styles.ytFormattedString6}>
+              <div className={styles.ytFormattedString}>
                 <div className={styles.all}>All</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer1}>
-              <div className={styles.ytFormattedString7}>
+              <div className={styles.ytFormattedString1}>
                 <div className={styles.live}>Live</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer2}>
-              <div className={styles.ytFormattedString8}>
+              <div className={styles.ytFormattedString2}>
                 <div className={styles.gaming}>Gaming</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer3}>
-              <div className={styles.ytFormattedString9}>
+              <div className={styles.ytFormattedString3}>
                 <div className={styles.laughter}>Laughter</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer4}>
-              <div className={styles.ytFormattedString10}>
+              <div className={styles.ytFormattedString4}>
                 <div className={styles.gadgets}>Gadgets</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer5}>
-              <div className={styles.ytFormattedString11}>
+              <div className={styles.ytFormattedString5}>
                 <div className={styles.tools}>Tools</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer6}>
-              <div className={styles.ytFormattedString12}>
+              <div className={styles.ytFormattedString6}>
                 <div className={styles.quarterbacks}>Quarterbacks</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer7}>
-              <div className={styles.ytFormattedString13}>
+              <div className={styles.ytFormattedString7}>
                 <div className={styles.comedy}>Comedy</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer8}>
-              <div className={styles.ytFormattedString14}>
+              <div className={styles.ytFormattedString8}>
                 <div className={styles.characters}>Characters</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer9}>
-              <div className={styles.ytFormattedString15}>
+              <div className={styles.ytFormattedString9}>
                 <div className={styles.backgroundMusic}>Background music</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer10}>
-              <div className={styles.ytFormattedString16}>
+              <div className={styles.ytFormattedString10}>
                 <div className={styles.driving}>Driving</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer11}>
-              <div className={styles.ytFormattedString17}>
+              <div className={styles.ytFormattedString11}>
                 <div className={styles.gameShows}>Game shows</div>
               </div>
             </div>
             <div className={styles.ytChipCloudChipRenderer12}>
-              <div className={styles.ytFormattedString18}>
-                <div className={styles.history1}>History</div>
+              <div className={styles.ytFormattedString12}>
+                <div className={styles.history}>History</div>
               </div>
             </div>
           </div>
