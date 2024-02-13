@@ -1,10 +1,9 @@
-import type { NextPage } from "next";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
 import YTSearchBar from "../components/y-t-search-bar";
 import styles from "./video-page.module.css";
 
-const VideoPage: NextPage = () => {
+const VideoPage = () => {
   const router = useRouter();
 
   const onSearchClick = useCallback(() => {
@@ -16,12 +15,12 @@ const VideoPage: NextPage = () => {
       <YTSearchBar
         onSearchClick={onSearchClick}
         svg="/svg.svg"
-        svg1="/svg.svg"
-        svg2="/svg.svg"
+        svg1="/svg1.svg"
+        svg2="/svg2.svg"
         divvoiceSearchButton="/divvoicesearchbutton.svg"
         vector="/vector.svg"
         ytIconButton="/yticonbutton.svg"
-        svg3="/svg.svg"
+        svg3="/svg3.svg"
       />
       <div className={styles.divcolumns}>
         <div className={styles.divprimaryInner}>
@@ -72,13 +71,13 @@ const VideoPage: NextPage = () => {
                 </div>
                 <div className={styles.ytdMenuRenderer}>
                   <div className={styles.divtopLevelButtonsComputed}>
-                    <button className={styles.ytdSegmentedLikeDislikeBut}>
+                    <div className={styles.ytdSegmentedLikeDislikeBut}>
                       <div className={styles.ytdToggleButtonRenderer}>
                         <button className={styles.likeThisVideoAlongWith169}>
                           <img
                             className={styles.svgIcon}
                             alt=""
-                            src="/svg.svg"
+                            src="/svg20.svg"
                           />
                           <div className={styles.div1}>169</div>
                         </button>
@@ -89,10 +88,14 @@ const VideoPage: NextPage = () => {
                         alt=""
                         src="/dislike-this-video.svg"
                       />
-                    </button>
+                    </div>
                     <div className={styles.ytdButtonRenderer}>
                       <div className={styles.share}>
-                        <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                        <img
+                          className={styles.svgIcon}
+                          alt=""
+                          src="/svg21.svg"
+                        />
                         <div className={styles.share1}>Share</div>
                       </div>
                     </div>

@@ -1,11 +1,10 @@
-import type { NextPage } from "next";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
 import YTSearchBar from "../components/y-t-search-bar";
 import YTGuideSection from "../components/y-t-guide-section";
 import styles from "./index.module.css";
 
-const Homepage: NextPage = () => {
+const Homepage = () => {
   const router = useRouter();
 
   const onSearchClick = useCallback(() => {
@@ -33,36 +32,36 @@ const Homepage: NextPage = () => {
       <YTSearchBar
         onSearchClick={onSearchClick}
         svg="/svg.svg"
-        svg1="/svg.svg"
+        svg1="/svg1.svg"
         divcontainerColor="black"
-        svg2="/svg.svg"
+        svg2="/svg2.svg"
         divvoiceSearchButton="/divvoicesearchbutton.svg"
         vector="/vector.svg"
         ytIconButton="/yticonbutton.svg"
-        svg3="/svg.svg"
+        svg3="/svg3.svg"
       />
       <div className={styles.ytdBody}>
         <div className={styles.divsections}>
           <div className={styles.divitems}>
             <button className={styles.ytdGuideEntryRenderer}>
-              <button className={styles.tpYtPaperItem}>
-                <img className={styles.svgIcon} alt="" src="/svg.svg" />
+              <div className={styles.tpYtPaperItem}>
+                <img className={styles.svgIcon} alt="" src="/svg4.svg" />
                 <div className={styles.ytFormattedString}>
                   <div className={styles.home}>Home</div>
                 </div>
-              </button>
+              </div>
             </button>
             <div className={styles.ytdGuideEntryRenderer1}>
-              <div className={styles.tpYtPaperItem1}>
-                <img className={styles.svgIcon} alt="" src="/svg.svg" />
+              <div className={styles.tpYtPaperItem}>
+                <img className={styles.svgIcon} alt="" src="/svg5.svg" />
                 <div className={styles.ytFormattedString}>
                   <div className={styles.shorts}>Shorts</div>
                 </div>
               </div>
             </div>
             <div className={styles.ytdGuideEntryRenderer1}>
-              <div className={styles.tpYtPaperItem1}>
-                <img className={styles.svgIcon} alt="" src="/svg.svg" />
+              <div className={styles.tpYtPaperItem}>
+                <img className={styles.svgIcon} alt="" src="/svg6.svg" />
                 <div className={styles.ytFormattedString}>
                   <div className={styles.subscriptions}>Subscriptions</div>
                 </div>
@@ -71,16 +70,16 @@ const Homepage: NextPage = () => {
           </div>
           <div className={styles.divitems1}>
             <div className={styles.ytdGuideEntryRenderer1}>
-              <div className={styles.tpYtPaperItem1}>
-                <img className={styles.svgIcon} alt="" src="/svg.svg" />
+              <div className={styles.tpYtPaperItem}>
+                <img className={styles.svgIcon} alt="" src="/svg7.svg" />
                 <div className={styles.ytFormattedString}>
                   <div className={styles.library}>Library</div>
                 </div>
               </div>
             </div>
             <div className={styles.ytdGuideEntryRenderer1}>
-              <div className={styles.tpYtPaperItem1}>
-                <img className={styles.svgIcon} alt="" src="/svg.svg" />
+              <div className={styles.tpYtPaperItem}>
+                <img className={styles.svgIcon} alt="" src="/svg8.svg" />
                 <div className={styles.ytFormattedString}>
                   <div className={styles.history}>History</div>
                 </div>
@@ -92,15 +91,15 @@ const Homepage: NextPage = () => {
               Sign in to like videos, comment, and subscribe.
             </div>
             <div className={styles.a}>
-              <img className={styles.svgIcon} alt="" src="/svg.svg" />
+              <img className={styles.svgIcon} alt="" src="/svg3.svg" />
               <div className={styles.div}>
                 <div className={styles.signIn}>Sign in</div>
               </div>
             </div>
           </div>
           <div className={styles.ytdGuideEntryRenderer5}>
-            <div className={styles.tpYtPaperItem1}>
-              <img className={styles.svgIcon} alt="" src="/svg.svg" />
+            <div className={styles.tpYtPaperItem}>
+              <img className={styles.svgIcon} alt="" src="/svg9.svg" />
               <div className={styles.ytFormattedString}>
                 <div className={styles.browseChannels}>Browse channels</div>
               </div>
@@ -213,7 +212,7 @@ const Homepage: NextPage = () => {
                 <img
                   className={styles.zMnvfkkjr08efltsqqm53qn7x3gyIcon}
                   alt=""
-                  src="/8zmnvfkkjr08efltsqqm5-3qn7x3gy0ffr0dy6mqscdddxj1zfwnumsa4i8gwtvpdqkwbds68ckc0x00ffffffnorj@2x.png"
+                  src="/8zmnvfkkjr08efltsqqm5-3qn7x3gy0ffr0dy6mqscdddxj1zfwnumsa4i8gwtvpdqkwbds68ckc0x00ffffffnorj1@2x.png"
                 />
                 <div className={styles.divmeta}>
                   <div className={styles.coolestNewGadgets}>
@@ -239,7 +238,7 @@ const Homepage: NextPage = () => {
                 <img
                   className={styles.zMnvfkkjr08efltsqqm53qn7x3gyIcon}
                   alt=""
-                  src="/8zmnvfkkjr08efltsqqm5-3qn7x3gy0ffr0dy6mqscdddxj1zfwnumsa4i8gwtvpdqkwbds68ckc0x00ffffffnorj@2x.png"
+                  src="/8zmnvfkkjr08efltsqqm5-3qn7x3gy0ffr0dy6mqscdddxj1zfwnumsa4i8gwtvpdqkwbds68ckc0x00ffffffnorj2@2x.png"
                 />
                 <div className={styles.divmeta}>
                   <div className={styles.coolestNewGadgets}>
@@ -265,7 +264,7 @@ const Homepage: NextPage = () => {
                 <img
                   className={styles.zMnvfkkjr08efltsqqm53qn7x3gyIcon}
                   alt=""
-                  src="/8zmnvfkkjr08efltsqqm5-3qn7x3gy0ffr0dy6mqscdddxj1zfwnumsa4i8gwtvpdqkwbds68ckc0x00ffffffnorj@2x.png"
+                  src="/8zmnvfkkjr08efltsqqm5-3qn7x3gy0ffr0dy6mqscdddxj1zfwnumsa4i8gwtvpdqkwbds68ckc0x00ffffffnorj3@2x.png"
                 />
                 <div className={styles.divmeta}>
                   <div

@@ -1,10 +1,9 @@
-import type { NextPage } from "next";
 import { useCallback } from "react";
 import YTSearchBar from "../components/y-t-search-bar";
 import { useRouter } from "next/router";
 import styles from "./search-results.module.css";
 
-const SearchResults: NextPage = () => {
+const SearchResults = () => {
   const router = useRouter();
 
   const onYtdVideoRendererContainerClick = useCallback(() => {
@@ -27,20 +26,20 @@ const SearchResults: NextPage = () => {
     <div className={styles.searchResults}>
       <YTSearchBar
         svg="/svg.svg"
-        svg1="/svg.svg"
+        svg1="/svg1.svg"
         divcontainerColor="#888"
-        svg2="/svg.svg"
+        svg2="/svg2.svg"
         divvoiceSearchButton="/divvoicesearchbutton.svg"
         vector="/vector.svg"
         ytIconButton="/yticonbutton.svg"
-        svg3="/svg.svg"
+        svg3="/svg3.svg"
       />
       <div className={styles.divContent}>
         <div className={styles.divsections}>
           <div className={styles.divitems}>
             <div className={styles.ytdGuideEntryRenderer}>
               <div className={styles.tpYtPaperItem}>
-                <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                <img className={styles.svgIcon} alt="" src="/svg4.svg" />
                 <div className={styles.ytFormattedString}>
                   <div className={styles.home}>Home</div>
                 </div>
@@ -48,7 +47,7 @@ const SearchResults: NextPage = () => {
             </div>
             <div className={styles.ytdGuideEntryRenderer1}>
               <div className={styles.tpYtPaperItem}>
-                <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                <img className={styles.svgIcon} alt="" src="/svg5.svg" />
                 <div className={styles.ytFormattedString}>
                   <div className={styles.shorts}>Shorts</div>
                 </div>
@@ -56,7 +55,7 @@ const SearchResults: NextPage = () => {
             </div>
             <div className={styles.ytdGuideEntryRenderer1}>
               <div className={styles.tpYtPaperItem}>
-                <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                <img className={styles.svgIcon} alt="" src="/svg6.svg" />
                 <div className={styles.ytFormattedString}>
                   <div className={styles.subscriptions}>Subscriptions</div>
                 </div>
@@ -66,7 +65,7 @@ const SearchResults: NextPage = () => {
           <div className={styles.divitems1}>
             <div className={styles.ytdGuideEntryRenderer1}>
               <div className={styles.tpYtPaperItem}>
-                <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                <img className={styles.svgIcon} alt="" src="/svg7.svg" />
                 <div className={styles.ytFormattedString}>
                   <div className={styles.library}>Library</div>
                 </div>
@@ -74,7 +73,7 @@ const SearchResults: NextPage = () => {
             </div>
             <div className={styles.ytdGuideEntryRenderer1}>
               <div className={styles.tpYtPaperItem}>
-                <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                <img className={styles.svgIcon} alt="" src="/svg8.svg" />
                 <div className={styles.ytFormattedString}>
                   <div className={styles.history}>History</div>
                 </div>
@@ -86,7 +85,7 @@ const SearchResults: NextPage = () => {
               Sign in to like videos, comment, and subscribe.
             </div>
             <div className={styles.a}>
-              <img className={styles.svgIcon} alt="" src="/svg.svg" />
+              <img className={styles.svgIcon} alt="" src="/svg3.svg" />
               <div className={styles.div}>
                 <div className={styles.signIn}>Sign in</div>
               </div>
@@ -97,7 +96,7 @@ const SearchResults: NextPage = () => {
             <div className={styles.divitems2}>
               <div className={styles.ytdGuideEntryRenderer1}>
                 <div className={styles.tpYtPaperItem}>
-                  <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                  <img className={styles.svgIcon} alt="" src="/svg10.svg" />
                   <div className={styles.ytFormattedString}>
                     <div className={styles.trending}>Trending</div>
                   </div>
@@ -105,7 +104,7 @@ const SearchResults: NextPage = () => {
               </div>
               <div className={styles.ytdGuideEntryRenderer1}>
                 <div className={styles.tpYtPaperItem}>
-                  <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                  <img className={styles.svgIcon} alt="" src="/svg11.svg" />
                   <div className={styles.ytFormattedString}>
                     <div className={styles.music}>Music</div>
                   </div>
@@ -113,7 +112,7 @@ const SearchResults: NextPage = () => {
               </div>
               <div className={styles.ytdGuideEntryRenderer1}>
                 <div className={styles.tpYtPaperItem}>
-                  <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                  <img className={styles.svgIcon} alt="" src="/svg12.svg" />
                   <div className={styles.ytFormattedString}>
                     <div className={styles.moviesTv}>{`Movies & TV`}</div>
                   </div>
@@ -121,7 +120,7 @@ const SearchResults: NextPage = () => {
               </div>
               <div className={styles.ytdGuideEntryRenderer1}>
                 <div className={styles.tpYtPaperItem}>
-                  <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                  <img className={styles.svgIcon} alt="" src="/svg13.svg" />
                   <div className={styles.ytFormattedString}>
                     <div className={styles.live}>Live</div>
                   </div>
@@ -129,7 +128,7 @@ const SearchResults: NextPage = () => {
               </div>
               <div className={styles.ytdGuideEntryRenderer1}>
                 <div className={styles.tpYtPaperItem}>
-                  <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                  <img className={styles.svgIcon} alt="" src="/svg14.svg" />
                   <div className={styles.ytFormattedString}>
                     <div className={styles.gaming}>Gaming</div>
                   </div>
@@ -137,7 +136,7 @@ const SearchResults: NextPage = () => {
               </div>
               <div className={styles.ytdGuideEntryRenderer1}>
                 <div className={styles.tpYtPaperItem}>
-                  <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                  <img className={styles.svgIcon} alt="" src="/svg15.svg" />
                   <div className={styles.ytFormattedString}>
                     <div className={styles.news}>News</div>
                   </div>
@@ -145,7 +144,7 @@ const SearchResults: NextPage = () => {
               </div>
               <div className={styles.ytdGuideEntryRenderer1}>
                 <div className={styles.tpYtPaperItem}>
-                  <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                  <img className={styles.svgIcon} alt="" src="/svg16.svg" />
                   <div className={styles.ytFormattedString}>
                     <div className={styles.sports}>Sports</div>
                   </div>
@@ -153,7 +152,7 @@ const SearchResults: NextPage = () => {
               </div>
               <div className={styles.ytdGuideEntryRenderer1}>
                 <div className={styles.tpYtPaperItem}>
-                  <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                  <img className={styles.svgIcon} alt="" src="/svg17.svg" />
                   <div className={styles.ytFormattedString}>
                     <div className={styles.learning}>Learning</div>
                   </div>
@@ -161,7 +160,7 @@ const SearchResults: NextPage = () => {
               </div>
               <div className={styles.ytdGuideEntryRenderer1}>
                 <div className={styles.tpYtPaperItem}>
-                  <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                  <img className={styles.svgIcon} alt="" src="/svg18.svg" />
                   <div className={styles.ytFormattedString}>
                     <div
                       className={styles.fashionBeauty}
@@ -171,7 +170,7 @@ const SearchResults: NextPage = () => {
               </div>
               <div className={styles.ytdGuideEntryRenderer1}>
                 <div className={styles.tpYtPaperItem}>
-                  <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                  <img className={styles.svgIcon} alt="" src="/svg19.svg" />
                   <div className={styles.ytFormattedString}>
                     <div className={styles.podcasts}>Podcasts</div>
                   </div>
@@ -181,7 +180,7 @@ const SearchResults: NextPage = () => {
           </div>
           <div className={styles.ytdGuideEntryRenderer15}>
             <div className={styles.tpYtPaperItem}>
-              <img className={styles.svgIcon} alt="" src="/svg.svg" />
+              <img className={styles.svgIcon} alt="" src="/svg9.svg" />
               <div className={styles.ytFormattedString}>
                 <div className={styles.browseChannels}>Browse channels</div>
               </div>
@@ -192,7 +191,7 @@ const SearchResults: NextPage = () => {
           <div className={styles.ytdSearchSubMenuRenderer}>
             <div className={styles.ytdToggleButtonRenderer}>
               <div className={styles.searchFilters}>
-                <img className={styles.svgIcon} alt="" src="/svg.svg" />
+                <img className={styles.svgIcon} alt="" src="/svg22.svg" />
                 <div className={styles.div1}>
                   <div className={styles.filters}>Filters</div>
                 </div>
@@ -228,7 +227,7 @@ const SearchResults: NextPage = () => {
                   <img
                     className={styles.ytImgShadowIcon}
                     alt=""
-                    src="/ytimgshadow@2x.png"
+                    src="/ytimgshadow1@2x.png"
                   />
                   <div className={styles.kViews}>Locofy</div>
                 </div>
@@ -264,7 +263,7 @@ const SearchResults: NextPage = () => {
                   <img
                     className={styles.ytImgShadowIcon}
                     alt=""
-                    src="/ytimgshadow@2x.png"
+                    src="/ytimgshadow2@2x.png"
                   />
                   <div className={styles.kViews}>Locofy</div>
                 </div>
@@ -300,7 +299,7 @@ const SearchResults: NextPage = () => {
                   <img
                     className={styles.ytImgShadowIcon}
                     alt=""
-                    src="/ytimgshadow@2x.png"
+                    src="/ytimgshadow3@2x.png"
                   />
                   <div className={styles.kViews}>Locofy</div>
                 </div>
@@ -336,7 +335,7 @@ const SearchResults: NextPage = () => {
                   <img
                     className={styles.ytImgShadowIcon}
                     alt=""
-                    src="/ytimgshadow@2x.png"
+                    src="/ytimgshadow4@2x.png"
                   />
                   <div className={styles.kViews}>Locofy</div>
                 </div>

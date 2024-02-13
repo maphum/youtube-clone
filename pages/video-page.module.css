@@ -213,11 +213,8 @@
   height: 36px;
 }
 .ytdSegmentedLikeDislikeBut {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: #e6e6e6;
   border-radius: var(--br-81xl);
+  background-color: #e6e6e6;
   flex-direction: row;
   justify-content: center;
 }
@@ -561,7 +558,7 @@
   justify-content: flex-start;
 }
 .divcolumns {
-  align-self: stretch;
+  width: 1339px;
   height: 1014px;
   flex-direction: row;
   padding: var(--padding-5xl) var(--padding-5xl) 0;

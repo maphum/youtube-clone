@@ -32,22 +32,21 @@
 }
 .tpYtPaperItem,
 .ytdGuideEntryRenderer {
-  cursor: pointer;
-  border: 0;
   width: 204px;
   display: flex;
   align-items: center;
 }
 .tpYtPaperItem {
-  padding: 0 var(--padding-xs);
-  background-color: transparent;
   height: 40px;
   flex-direction: row;
   justify-content: flex-start;
+  padding: 0 var(--padding-xs);
   box-sizing: border-box;
   gap: var(--gap-5xl);
 }
 .ytdGuideEntryRenderer {
+  cursor: pointer;
+  border: 0;
   padding: 0;
   background-color: var(--color-gray-400);
   border-radius: var(--br-3xs);
@@ -63,23 +62,12 @@
   height: 16px;
   flex-shrink: 0;
 }
-.tpYtPaperItem1,
 .ytdGuideEntryRenderer1 {
   width: 204px;
-  display: flex;
-  align-items: center;
-}
-.tpYtPaperItem1 {
-  height: 40px;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 0 var(--padding-xs);
-  box-sizing: border-box;
-  gap: var(--gap-5xl);
-}
-.ytdGuideEntryRenderer1 {
   border-radius: var(--br-3xs);
+  display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 .subscriptions {

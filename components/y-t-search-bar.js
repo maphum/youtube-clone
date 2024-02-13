@@ -1,26 +1,9 @@
-import type { NextPage } from "next";
-import { useState, useMemo, type CSSProperties, useCallback } from "react";
+import { useState, useMemo, useCallback } from "react";
 import Menu from "./menu";
 import PortalPopup from "./portal-popup";
 import styles from "./y-t-search-bar.module.css";
 
-export type YTSearchBarType = {
-  svg?: string;
-  svg1?: string;
-  svg2?: string;
-  divvoiceSearchButton?: string;
-  vector?: string;
-  ytIconButton?: string;
-  svg3?: string;
-
-  /** Style props */
-  divcontainerColor?: CSSProperties["color"];
-
-  /** Action props */
-  onSearchClick?: () => void;
-};
-
-const YTSearchBar: NextPage<YTSearchBarType> = ({
+const YTSearchBar = ({
   onSearchClick,
   svg,
   svg1,
@@ -32,7 +15,7 @@ const YTSearchBar: NextPage<YTSearchBarType> = ({
   svg3,
 }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const divcontainerStyle: CSSProperties = useMemo(() => {
+  const divcontainerStyle = useMemo(() => {
     return {
       color: divcontainerColor,
     };

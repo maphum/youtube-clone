@@ -1,20 +1,7 @@
-import type { NextPage } from "next";
-import { useMemo, type CSSProperties } from "react";
+import { useMemo } from "react";
 import styles from "./sidebarbtn.module.css";
 
-export type SidebarbtnType = {
-  img?: string;
-  sidebartext?: string;
-
-  /** Style props */
-  trendingWidth?: CSSProperties["width"];
-  ytFormattedStringHeight?: CSSProperties["height"];
-  trendingColor?: CSSProperties["color"];
-  trendingDisplay?: CSSProperties["display"];
-  trendingHeight?: CSSProperties["height"];
-};
-
-const Sidebarbtn: NextPage<SidebarbtnType> = ({
+const Sidebarbtn = ({
   img,
   sidebartext,
   trendingWidth,
@@ -23,7 +10,7 @@ const Sidebarbtn: NextPage<SidebarbtnType> = ({
   trendingDisplay,
   trendingHeight,
 }) => {
-  const trendingStyle: CSSProperties = useMemo(() => {
+  const trendingStyle = useMemo(() => {
     return {
       width: trendingWidth,
       color: trendingColor,
@@ -32,7 +19,7 @@ const Sidebarbtn: NextPage<SidebarbtnType> = ({
     };
   }, [trendingWidth, trendingColor, trendingDisplay, trendingHeight]);
 
-  const ytFormattedStringStyle: CSSProperties = useMemo(() => {
+  const ytFormattedStringStyle = useMemo(() => {
     return {
       height: ytFormattedStringHeight,
     };
