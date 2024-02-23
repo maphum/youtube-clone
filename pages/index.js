@@ -6,8 +6,7 @@ import YTSearchBar from "../components/y-t-search-bar";
 import YTGuideSection from "../components/y-t-guide-section";
 import { formatDistance } from 'date-fns'
 import styles from "./index.module.css";
-
-const api_key = process.env.REACT_APP_API_KEY
+import { REACT_APP_API_KEY } from "../constants/ApiKey";
 
 const Homepage = () => {
   const router = useRouter();
@@ -19,22 +18,32 @@ const Homepage = () => {
   const onYtdCardContainerClick = useCallback(() => {
     router.push("/video-page");
   }, [router]);
+  
+  function handleVideoClick(id) {
+    console.log(id)
+    router.push({
+      pathname: '/video-page',
+      query: { 
+        id
+      },
+    });
+  }
 
   const [videos, setVideos] = useState([])
   useEffect(() => {
     async function fetchVideos() {
 
-      let Recommended = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&chart=mostPopular&maxResults=12&regionCode=IN&key=${"AIzaSyAajxxoLEMtwC2P3_b-Xm94GlP0HMgGMoI"}`).then(res => res.json());
+      let Recommended = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&chart=mostPopular&maxResults=12&regionCode=GB&key=${REACT_APP_API_KEY}`).then(res => res.json());
 
 
       const getlogo = async (channel_id) => {
-        var URL = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channel_id}&key=${"AIzaSyAajxxoLEMtwC2P3_b-Xm94GlP0HMgGMoI"}`;
+        var URL = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channel_id}&key=${REACT_APP_API_KEY}`;
         const res = await fetch(URL, {
           method: "GET", //Method of https request
           headers: {},
         });
         const logodata = await res.json();
-        let logo = logodata.items[0].snippet.thumbnails.default.url;
+        let logo = logodata.items[0].snippet.thumbnails.high.url;
         console.log(logo)
         return logo;
       };
@@ -215,7 +224,7 @@ const Homepage = () => {
           </div>
           {videos?.length > 0 ? videos.map(groupVideos => {
                             return <div className={styles.divcontents}>
-                              {groupVideos.map(video => <div className={styles.ytdCard} onClick={() => onYtdCardContainerClick(video)}>
+                              {groupVideos.map(video => <div className={styles.ytdCard} onClick={() => handleVideoClick(video?.id)}>
                 <img
                   className={styles.ytdThumbnailIcon}
                   alt=""
@@ -249,112 +258,7 @@ const Homepage = () => {
               </div>
             }) : <div>Loading</div>
             }
-          {/* <div className={styles.divcontents}>
-            <div className={styles.ytdCard} onClick={onYtdCardContainerClick}>
-              <img
-                className={styles.ytdThumbnailIcon}
-                alt=""
-                src="/ytdthumbnail@2x.png"
-              />
-              <div className={styles.ytdDescription}>
-                <img
-                  className={styles.zMnvfkkjr08efltsqqm53qn7x3gyIcon}
-                  alt=""
-                  src="/8zmnvfkkjr08efltsqqm5-3qn7x3gy0ffr0dy6mqscdddxj1zfwnumsa4i8gwtvpdqkwbds68ckc0x00ffffffnorj@2x.png"
-                />
-                <div className={styles.divmeta}>
-                  <div className={styles.coolestNewGadgets}>
-                    10 COOLEST New Gadgets And Inventions YOU SHOULD HAVE!
-                  </div>
-                  <div className={styles.divmetadata}>
-                    <div className={styles.techow}>TecHOW</div>
-                    <div className={styles.divmetadataLine}>
-                      <div className={styles.techow}>615 views</div>
-                      <div className={styles.techow}>• 19 hours ago</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.ytdCard} onClick={onYtdCardContainer1Click}>
-              <img
-                className={styles.ytdThumbnailIcon}
-                alt=""
-                src="/ytdthumbnail1@2x.png"
-              />
-              <div className={styles.ytdDescription}>
-                <img
-                  className={styles.zMnvfkkjr08efltsqqm53qn7x3gyIcon}
-                  alt=""
-                  src="/8zmnvfkkjr08efltsqqm5-3qn7x3gy0ffr0dy6mqscdddxj1zfwnumsa4i8gwtvpdqkwbds68ckc0x00ffffffnorj1@2x.png"
-                />
-                <div className={styles.divmeta}>
-                  <div className={styles.coolestNewGadgets}>
-                    The New Youngest Self-Made Billionaire In The World Is A 25-
-                  </div>
-                  <div className={styles.divmetadata}>
-                    <div className={styles.techow}>Forbes</div>
-                    <div className={styles.divmetadataLine}>
-                      <div className={styles.techow}>2M views</div>
-                      <div className={styles.techow}>• 5 months ago</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.ytdCard} onClick={onYtdCardContainer2Click}>
-              <img
-                className={styles.ytdThumbnailIcon}
-                alt=""
-                src="/ytdthumbnail2@2x.png"
-              />
-              <div className={styles.ytdDescription}>
-                <img
-                  className={styles.zMnvfkkjr08efltsqqm53qn7x3gyIcon}
-                  alt=""
-                  src="/8zmnvfkkjr08efltsqqm5-3qn7x3gy0ffr0dy6mqscdddxj1zfwnumsa4i8gwtvpdqkwbds68ckc0x00ffffffnorj2@2x.png"
-                />
-                <div className={styles.divmeta}>
-                  <div className={styles.coolestNewGadgets}>
-                    lofi hip hop radio - beats to relax/study to
-                  </div>
-                  <div className={styles.divmetadata}>
-                    <div className={styles.techow}>Lofi Girl</div>
-                    <div className={styles.divmetadataLine}>
-                      <div className={styles.techow}>8124 views</div>
-                      <div className={styles.techow}>• 5 months ago</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.ytdCard} onClick={onYtdCardContainer3Click}>
-              <img
-                className={styles.ytdThumbnailIcon}
-                alt=""
-                src="/ytdthumbnail3@2x.png"
-              />
-              <div className={styles.ytdDescription}>
-                <img
-                  className={styles.zMnvfkkjr08efltsqqm53qn7x3gyIcon}
-                  alt=""
-                  src="/8zmnvfkkjr08efltsqqm5-3qn7x3gy0ffr0dy6mqscdddxj1zfwnumsa4i8gwtvpdqkwbds68ckc0x00ffffffnorj3@2x.png"
-                />
-                <div className={styles.divmeta}>
-                  <div
-                    className={styles.coolestNewGadgets}
-                  >{`Baby Hippo Raised By Rhinos Meets A Hippo... ❤️ | The Dodo Go `}</div>
-                  <div className={styles.divmetadata}>
-                    <div className={styles.techow}>The Dodo</div>
-                    <div className={styles.divmetadataLine}>
-                      <div className={styles.techow}>4.3M views</div>
-                      <div className={styles.techow}>• 3 days ago</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
+          
         </div>
       </div>
     </div>

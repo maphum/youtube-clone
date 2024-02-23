@@ -1,6 +1,7 @@
+import { REACT_APP_API_KEY } from "../constants/ApiKey";
 export const listWithLogos = async (result) => {
     const fetchLogo = async (channel_id) => {
-        var URL = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=${channel_id}&key=${"AIzaSyAajxxoLEMtwC2P3_b-Xm94GlP0HMgGMoI"}`;
+        var URL = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=${channel_id}&key=${REACT_APP_API_KEY}`;
         const res = await fetch(URL, {
             method: "GET", 
             headers: {},
@@ -33,7 +34,7 @@ export const listWithStatistics = async (videoList) => {
         }),
         initValue
     );
-    let r = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videosId}&key=${"AIzaSyAajxxoLEMtwC2P3_b-Xm94GlP0HMgGMoI"}`).then(res => res.json())
+    let r = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videosId}&key=${REACT_APP_API_KEY}`).then(res => res.json())
     
     videoList = videoList.map((item, i) => {
         item.statistics = r.items[i].statistics
