@@ -7,7 +7,7 @@ import YTGuideSection from "../components/y-t-guide-section";
 import { formatDistance } from 'date-fns'
 import styles from "./index.module.css";
 import { REACT_APP_API_KEY } from "../constants/ApiKey";
-
+import Divsections from "../components/divsections";
 const Homepage = () => {
   const router = useRouter();
 
