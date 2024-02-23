@@ -7,6 +7,12 @@ function MyApp({ Component, pageProps }) {
     <Fragment>
       <Head>
         <title>Youtube Clone - Next.js</title>
+        <link
+          rel="icon"
+          href="/ytb.png"
+          type="image/png"
+          sizes="32x32"
+        />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
