@@ -1,28 +1,50 @@
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 import YTSearchBar from "../components/y-t-search-bar";
 import Divsections from "../components/divsections";
 import { useRouter } from "next/router";
 import styles from "./search-results.module.css";
-
+import { listWithLogos, listWithStatistics } from "../utils/getMetaData";
+import { formatDistance } from "date-fns";
+import { REACT_APP_API_KEY } from "../constants/ApiKey";
 const SearchResults = () => {
   const router = useRouter();
+  const [videos, setVideos] = useState([])
 
-  const onYtdVideoRendererContainerClick = useCallback(() => {
-    router.push("/video-page");
-  }, [router]);
 
-  const onYtdVideoRendererContainer1Click = useCallback(() => {
-    router.push("/video-page");
-  }, [router]);
+  async function getResults(youtube_search) {
+    const results = await fetch(youtube_search, {
+      method: "GET",
+    }).then(res => res.json());
+    let v = await listWithLogos(results)
+    v = await listWithStatistics(v)
+    setVideos(v)
 
-  const onYtdVideoRendererContainer2Click = useCallback(() => {
-    router.push("/video-page");
-  }, [router]);
+    console.log(v)
+  }
 
-  const onYtdVideoRendererContainer3Click = useCallback(() => {
-    router.push("/video-page");
-  }, [router]);
 
+  useEffect(() => {
+    if (router.query.searchTerm) {
+      let youtube_search = `https://www.googleapis.com/youtube/v3/search?key=${REACT_APP_API_KEY}&q=${router.query.searchTerm}&type=video&part=snippet&maxResults=12`;
+
+      getResults(youtube_search)
+
+    
+    }
+  }, [router])
+  function handleSearchClick(searchValue) {
+    let youtube_search = `https://www.googleapis.com/youtube/v3/search?key=${REACT_APP_API_KEY}&q=${searchValue}&type=video&part=snippet&maxResults=12`;
+    getResults(youtube_search)
+
+  }
+  function handleVideoClick(id) {
+    router.push({
+      pathname: '/video-page',
+      query: { 
+        id
+      },
+    });
+  }
   return (
     <div className={styles.searchResults}>
       <YTSearchBar
@@ -54,151 +76,46 @@ const SearchResults = () => {
             />
           </div>
           <div className={styles.ytdVideoRendererParent}>
-            <div
-              className={styles.ytdVideoRenderer}
-              onClick={onYtdVideoRendererContainerClick}
-            >
-              <img
-                className={styles.athumbnailIcon}
-                alt=""
-                src="/athumbnail1@2x.png"
-              />
-              <div className={styles.div1}>
-                <div className={styles.divmeta}>
-                  <div className={styles.figmaDesignTo}>
-                    Figma Design to Live Website with Locofy.ai
+            {videos.length > 0 ? videos.map(video => (
+              <div key={video?.id?.videoId || video?.id} 
+              onClick={() => handleVideoClick(video?.id?.videoId)}
+                  className={styles.ytdVideoRenderer}>
+                <img
+                  className={styles.athumbnailIcon}
+                  alt=""
+                  src={video?.snippet?.thumbnails?.high?.url || "/athumbnail1@2x.png"}
+                />
+                <div className={styles.div2}>
+                  <div className={styles.divmeta}>
+                    <div className={styles.figmaDesignTo}>
+                      {video?.snippet?.title || "Figma Design to Live Website with Locofy.ai"}
+                    </div>
+                    <div className={styles.divmetadataLine}>
+                      <div className={styles.kViews}>
+                        {video?.statistics?.viewCount > 1000 ? Math.ceil(video?.statistics?.viewCount / 1000) + 'K' : video?.statistics?.viewCount || "6.3K"} views
+                      </div>
+                      <div className={styles.kViews}>
+                        • {video?.snippet?.publishedAt ? formatDistance(new Date(video?.snippet?.publishedAt), new Date(), { addSuffix: true }) : "3 months ago"}
+                      </div>
+                    </div>
                   </div>
-                  <div className={styles.divmetadataLine}>
-                    <div className={styles.kViews}>6.3K views</div>
-                    <div className={styles.kViews}>• 3 months ago</div>
+                  <div className={styles.divchannelInfo}>
+                    <img
+                      className={styles.ytImgShadowIcon}
+                      alt=""
+                      src={video?.logo || "/ytimgshadow1@2x.png"}
+                    />
+                    <div className={styles.kViews}>{video?.snippet?.channelTitle || "Locofy"}</div>
                   </div>
-                </div>
-                <div className={styles.divchannelInfo}>
-                  <img
-                    className={styles.ytImgShadowIcon}
-                    alt=""
-                    src="/ytimgshadow1@2x.png"
-                  />
-                  <div className={styles.kViews}>Locofy</div>
-                </div>
-                <div className={styles.inThisVideoContainer}>
-                  <span>{`In this video you'll be learning how to go from a popular Figma design template to a Live Website using `}</span>
-                  <span className={styles.locofy1}>Locofy</span>
-                  <span>{`.ai! With `}</span>
-                  <span className={styles.locofy1}>Locofy</span>
-                  <span>.ai ...</span>
+                  <div className={styles.inThisVideoContainer}>
+                    <span>{video?.snippet?.description || `In this video you'll be learning how to go from a popular Figma design template to a Live Website using Locofy.ai! With Locofy.ai ...`}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              className={styles.ytdVideoRenderer}
-              onClick={onYtdVideoRendererContainer1Click}
-            >
-              <img
-                className={styles.athumbnailIcon}
-                alt=""
-                src="/athumbnail2@2x.png"
-              />
-              <div className={styles.div1}>
-                <div className={styles.divmeta}>
-                  <div className={styles.figmaDesignTo}>
-                    Figma Design to Live Website with Locofy.ai
-                  </div>
-                  <div className={styles.divmetadataLine}>
-                    <div className={styles.kViews}>6.3K views</div>
-                    <div className={styles.kViews}>• 3 months ago</div>
-                  </div>
-                </div>
-                <div className={styles.divchannelInfo}>
-                  <img
-                    className={styles.ytImgShadowIcon}
-                    alt=""
-                    src="/ytimgshadow2@2x.png"
-                  />
-                  <div className={styles.kViews}>Locofy</div>
-                </div>
-                <div className={styles.inThisVideoContainer}>
-                  <span>{`In this video you'll be learning how to go from a popular Figma design template to a Live Website using `}</span>
-                  <span className={styles.locofy1}>Locofy</span>
-                  <span>{`.ai! With `}</span>
-                  <span className={styles.locofy1}>Locofy</span>
-                  <span>.ai ...</span>
-                </div>
-              </div>
-            </div>
-            <div
-              className={styles.ytdVideoRenderer}
-              onClick={onYtdVideoRendererContainer2Click}
-            >
-              <img
-                className={styles.athumbnailIcon}
-                alt=""
-                src="/athumbnail3@2x.png"
-              />
-              <div className={styles.div1}>
-                <div className={styles.divmeta}>
-                  <div className={styles.figmaDesignTo}>
-                    Figma Design to Live Website with Locofy.ai
-                  </div>
-                  <div className={styles.divmetadataLine}>
-                    <div className={styles.kViews}>6.3K views</div>
-                    <div className={styles.kViews}>• 3 months ago</div>
-                  </div>
-                </div>
-                <div className={styles.divchannelInfo}>
-                  <img
-                    className={styles.ytImgShadowIcon}
-                    alt=""
-                    src="/ytimgshadow3@2x.png"
-                  />
-                  <div className={styles.kViews}>Locofy</div>
-                </div>
-                <div className={styles.inThisVideoContainer}>
-                  <span>{`In this video you'll be learning how to go from a popular Figma design template to a Live Website using `}</span>
-                  <span className={styles.locofy1}>Locofy</span>
-                  <span>{`.ai! With `}</span>
-                  <span className={styles.locofy1}>Locofy</span>
-                  <span>.ai ...</span>
-                </div>
-              </div>
-            </div>
-            <div
-              className={styles.ytdVideoRenderer3}
-              onClick={onYtdVideoRendererContainer3Click}
-            >
-              <img
-                className={styles.athumbnailIcon}
-                alt=""
-                src="/athumbnail4@2x.png"
-              />
-              <div className={styles.div1}>
-                <div className={styles.divmeta}>
-                  <div className={styles.figmaDesignTo}>
-                    Figma Design to Live Website with Locofy.ai
-                  </div>
-                  <div className={styles.divmetadataLine}>
-                    <div className={styles.kViews}>6.3K views</div>
-                    <div className={styles.kViews}>• 3 months ago</div>
-                  </div>
-                </div>
-                <div className={styles.divchannelInfo}>
-                  <img
-                    className={styles.ytImgShadowIcon}
-                    alt=""
-                    src="/ytimgshadow4@2x.png"
-                  />
-                  <div className={styles.kViews}>Locofy</div>
-                </div>
-                <div className={styles.inThisVideoContainer}>
-                  <span>{`In this video you'll be learning how to go from a popular Figma design template to a Live Website using `}</span>
-                  <span className={styles.locofy1}>Locofy</span>
-                  <span>{`.ai! With `}</span>
-                  <span className={styles.locofy1}>Locofy</span>
-                  <span>.ai ...</span>
-                </div>
-              </div>
-            </div>
+            )) : <div>Loading...</div>}
           </div>
+
+          
         </div>
       </div>
     </div>

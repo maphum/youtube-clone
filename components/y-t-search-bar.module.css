@@ -28,6 +28,7 @@
   width: 129px;
   position: relative;
   height: 56px;
+  cursor: pointer;
 }
 .divcontainer,
 .divstart {
